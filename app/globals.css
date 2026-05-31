@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #000814, #001d3d);
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+}
+
+/* CONTAINER */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* HERO */
+.hero {
+  margin-bottom: 50px;
+}
+
+.title {
+  color: #FFD60A;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* HERO IMAGE */
+.hero-img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border: 4px solid #000;
+  box-shadow: 6px 6px #000;
+  margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px;
+  border: 3px solid black;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.email { background: #ff4d4d; }
+.github { background: #333; color: white; }
+.linkedin { background: #0A66C2; }
+.resume { background: #00b4d8; }
+
+/* MAIN BUTTON */
+.main-btn {
+  background: #FFD60A;
+  padding: 12px 20px;
+  border: 4px solid black;
+  cursor: pointer;
+  box-shadow: 4px 4px black;
+}
+
+/* PROJECT SECTION */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.card {
+  background: #2b2b2b;
+  padding: 20px;
+  border: 4px solid #000;
+  box-shadow: 8px 8px #000;
+}
+
+/* PROJECT IMAGE */
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid #aaa;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.card h3 {
+  color: #00ff88;
+}
+
+.card p {
+  font-size: 10px;
+  color: #ccc;
+}
+
+/* BUTTON */
+.explore-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #00ff88;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 900px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
