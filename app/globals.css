@@ -191,3 +191,60 @@ body {
     0 0 5px #00ff88,
     0 0 15px #00ff88;
 }
+/* CYBER BACKGROUND */
+body {
+  background: radial-gradient(circle at top, #020617, #000);
+  overflow-x: hidden;
+}
+
+/* GLOW BORDER EFFECT */
+.card {
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #00ff88, #00ccff, #ff00ff);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* NEON TEXT */
+.title {
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 40px #ffcc00;
+}
+/* LOADER */
+.loader {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #00ff88;
+}
+
+/* CUBE ANIMATION */
+.cube {
+  width: 40px;
+  height: 40px;
+  background: #00ff88;
+  animation: spin 1s infinite linear;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
