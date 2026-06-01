@@ -128,3 +128,66 @@ body {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px black;
 }
+/* GLOW TEXT */
+.title {
+  font-size: 42px;
+  color: #ffd700;
+  text-shadow: 
+    0 0 5px #ffd700,
+    0 0 10px #ffd700,
+    3px 3px #000;
+}
+
+/* BUTTON GLOW */
+.main-btn {
+  display: block;
+  margin: 30px auto;
+  background: #ffd700;
+  border: 4px solid black;
+  padding: 14px 22px;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 5px 5px 0px black;
+  transition: 0.2s;
+}
+
+.main-btn:hover {
+  box-shadow: 
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    6px 6px 0px black;
+}
+
+/* CARD GLOW */
+.card {
+  background: linear-gradient(#2c2c2c, #1a1a1a);
+  border: 5px solid black;
+  box-shadow: 8px 8px 0px black;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow:
+    0 0 15px #00ff88,
+    0 0 30px #00ff88,
+    10px 10px 0px black;
+  transform: translate(-5px, -5px);
+}
+
+/* IMAGE ANIMATION */
+.card img {
+  transition: 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* SECTION TITLE GLOW */
+.section-title {
+  color: #00ff88;
+  text-shadow:
+    0 0 5px #00ff88,
+    0 0 15px #00ff88;
+}
