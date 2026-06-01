@@ -2,101 +2,110 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #000814, #001d3d);
-  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(to bottom, #020617, #031b2f);
   color: white;
-}
-
-/* CONTAINER */
-.container {
-  text-align: center;
-  padding: 20px;
+  font-family: 'Press Start 2P', cursive;
 }
 
 /* HERO */
 .hero {
-  margin-bottom: 50px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .title {
-  color: #FFD60A;
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 42px;
+  color: #ffd700;
+  text-shadow: 4px 4px #000;
 }
 
 .subtitle {
   font-size: 12px;
-  color: #ccc;
-  margin-bottom: 20px;
+  color: #aaa;
+  margin: 15px 0;
 }
 
-/* HERO IMAGE */
+/* IMAGE */
 .hero-img {
   width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-  border: 4px solid #000;
-  box-shadow: 6px 6px #000;
-  margin-bottom: 20px;
+  max-width: 1000px;
+  border: 5px solid black;
+  box-shadow: 8px 8px 0px black;
 }
 
-/* BUTTONS */
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 10px;
-  border: 3px solid black;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.email { background: #ff4d4d; }
-.github { background: #333; color: white; }
-.linkedin { background: #0A66C2; }
-.resume { background: #00b4d8; }
-
-/* MAIN BUTTON */
+/* BUTTON */
 .main-btn {
-  background: #FFD60A;
-  padding: 12px 20px;
+  display: block;
+  margin: 30px auto;
+  background: #ffd700;
   border: 4px solid black;
+  padding: 14px 22px;
+  font-family: inherit;
   cursor: pointer;
-  box-shadow: 4px 4px black;
+  box-shadow: 5px 5px 0px black;
+  transition: 0.2s;
 }
 
-/* PROJECT SECTION */
+.main-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px black;
+}
+
+/* PROJECTS */
 .projects {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 30px;
+  color: #00ff88;
+  text-shadow: 3px 3px #000;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* CARD */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARD (Minecraft Block Style) */
 .card {
-  background: #2b2b2b;
+  background: linear-gradient(#2c2c2c, #1a1a1a);
+  border: 5px solid black;
+  box-shadow: 8px 8px 0px black;
   padding: 20px;
-  border: 4px solid #000;
-  box-shadow: 8px 8px #000;
+  transition: 0.2s;
 }
 
-/* PROJECT IMAGE */
-.project-img {
+.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px black;
+}
+
+/* IMAGE */
+.card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border: 2px solid #aaa;
-  margin-bottom: 10px;
+  border: 3px solid #555;
+  margin-bottom: 15px;
 }
 
 /* TEXT */
 .card h3 {
   color: #00ff88;
+  margin: 10px 0;
 }
 
 .card p {
@@ -105,21 +114,17 @@ body {
 }
 
 /* BUTTON */
-.explore-btn {
-  margin-top: 10px;
-  padding: 10px;
+.card button {
+  margin-top: 15px;
   background: #00ff88;
-  border: 3px solid black;
+  border: 4px solid black;
+  padding: 10px 18px;
   cursor: pointer;
+  font-family: inherit;
+  box-shadow: 4px 4px 0px black;
 }
 
-/* 🔥 RESPONSIVE */
-@media (max-width: 900px) {
-  .projects {
-    grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 24px;
-  }
+.card button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px black;
 }
