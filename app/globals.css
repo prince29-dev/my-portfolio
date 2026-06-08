@@ -1,22 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
+/* RESET */
+* {
   margin: 0;
-  background: linear-gradient(to bottom, #020617, #031b2f);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background: black;
   color: white;
   font-family: 'Press Start 2P', cursive;
+  overflow-x: hidden;
+}
+
+/* 🌌 ANIMATED BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.3;
+  z-index: -2;
 }
 
 /* HERO */
 .hero {
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .title {
   font-size: 42px;
   color: #ffd700;
-  text-shadow: 4px 4px #000;
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 40px #ffcc00,
+    3px 3px #000;
 }
 
 .subtitle {
@@ -25,42 +48,110 @@ body {
   margin: 15px 0;
 }
 
-/* IMAGE */
 .hero-img {
   width: 100%;
   max-width: 1000px;
   border: 5px solid black;
-  box-shadow: 8px 8px 0px black;
+  box-shadow: 10px 10px 0px black;
 }
 
 /* BUTTON */
 .main-btn {
-  display: block;
   margin: 30px auto;
+  display: block;
   background: #ffd700;
   border: 4px solid black;
   padding: 14px 22px;
-  font-family: inherit;
   cursor: pointer;
   box-shadow: 5px 5px 0px black;
   transition: 0.2s;
 }
 
 .main-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px black;
+  transform: translate(-3px, -3px);
+  box-shadow:
+    0 0 10px #ffd700,
+    0 0 25px #ffd700,
+    8px 8px 0px black;
+}
+
+/* 👾 MOBS */
+.ghast {
+  position: fixed;
+  width: 120px;
+  top: 100px;
+  left: 100px;
+  pointer-events: none;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.enderman {
+  position: fixed;
+  width: 90px;
+  right: 40px;
+  bottom: 40px;
+  animation: float 2s infinite ease-in-out;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* ABOUT */
+.about {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.about-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about-left img {
+  width: 220px;
+  border: 5px solid black;
+  box-shadow: 8px 8px 0px black;
+  image-rendering: pixelated;
+  transition: 0.2s;
+}
+
+.about-left img:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px black;
+}
+
+.about-right {
+  max-width: 500px;
+  text-align: left;
+  font-size: 10px;
+  color: #ccc;
+}
+
+.highlight {
+  color: #00ff88;
 }
 
 /* PROJECTS */
 .projects {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
 .section-title {
   font-size: 30px;
   color: #00ff88;
-  text-shadow: 3px 3px #000;
+  text-shadow:
+    0 0 10px #00ff88,
+    0 0 25px #00ff88;
   margin-bottom: 50px;
 }
 
@@ -79,30 +170,55 @@ body {
   }
 }
 
-/* CARD (Minecraft Block Style) */
+/* CARD */
 .card {
-  background: linear-gradient(#2c2c2c, #1a1a1a);
+  background: linear-gradient(#2c2c2c, #111);
   border: 5px solid black;
   box-shadow: 8px 8px 0px black;
   padding: 20px;
-  transition: 0.2s;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
+/* GLOW BORDER */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #00ff88, #00ccff, #ff00ff);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* HOVER EFFECT */
 .card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0px black;
+  transform: translate(-6px, -6px);
+  box-shadow:
+    0 0 20px #00ff88,
+    0 0 40px #00ff88,
+    12px 12px 0px black;
 }
 
-/* IMAGE */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border: 3px solid #555;
   margin-bottom: 15px;
+  transition: 0.3s;
 }
 
-/* TEXT */
+.card:hover img {
+  transform: scale(1.08);
+}
+
 .card h3 {
   color: #00ff88;
   margin: 10px 0;
@@ -113,138 +229,16 @@ body {
   color: #ccc;
 }
 
-/* BUTTON */
 .card button {
   margin-top: 15px;
   background: #00ff88;
   border: 4px solid black;
   padding: 10px 18px;
   cursor: pointer;
-  font-family: inherit;
   box-shadow: 4px 4px 0px black;
 }
 
 .card button:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px black;
-}
-/* GLOW TEXT */
-.title {
-  font-size: 42px;
-  color: #ffd700;
-  text-shadow: 
-    0 0 5px #ffd700,
-    0 0 10px #ffd700,
-    3px 3px #000;
-}
-
-/* BUTTON GLOW */
-.main-btn {
-  display: block;
-  margin: 30px auto;
-  background: #ffd700;
-  border: 4px solid black;
-  padding: 14px 22px;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 5px 5px 0px black;
-  transition: 0.2s;
-}
-
-.main-btn:hover {
-  box-shadow: 
-    0 0 10px #ffd700,
-    0 0 20px #ffd700,
-    6px 6px 0px black;
-}
-
-/* CARD GLOW */
-.card {
-  background: linear-gradient(#2c2c2c, #1a1a1a);
-  border: 5px solid black;
-  box-shadow: 8px 8px 0px black;
-  padding: 20px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  box-shadow:
-    0 0 15px #00ff88,
-    0 0 30px #00ff88,
-    10px 10px 0px black;
-  transform: translate(-5px, -5px);
-}
-
-/* IMAGE ANIMATION */
-.card img {
-  transition: 0.3s;
-}
-
-.card:hover img {
-  transform: scale(1.05);
-}
-
-/* SECTION TITLE GLOW */
-.section-title {
-  color: #00ff88;
-  text-shadow:
-    0 0 5px #00ff88,
-    0 0 15px #00ff88;
-}
-/* CYBER BACKGROUND */
-body {
-  background: radial-gradient(circle at top, #020617, #000);
-  overflow-x: hidden;
-}
-
-/* GLOW BORDER EFFECT */
-.card {
-  position: relative;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, #00ff88, #00ccff, #ff00ff);
-  z-index: -1;
-  filter: blur(8px);
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-/* NEON TEXT */
-.title {
-  text-shadow:
-    0 0 10px #ffd700,
-    0 0 20px #ffd700,
-    0 0 40px #ffcc00;
-}
-/* LOADER */
-.loader {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-  color: #00ff88;
-}
-
-/* CUBE ANIMATION */
-.cube {
-  width: 40px;
-  height: 40px;
-  background: #00ff88;
-  animation: spin 1s infinite linear;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }

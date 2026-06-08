@@ -1,100 +1,72 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import gsap from "gsap";
 
 export default function Home() {
+
+  useEffect(() => {
+    // Ghast follow cursor
+    const ghast = document.querySelector(".ghast");
+
+    window.addEventListener("mousemove", (e) => {
+      gsap.to(ghast, {
+        x: e.clientX / 10,
+        y: e.clientY / 10,
+        duration: 1,
+      });
+    });
+
+    // Floating Enderman
+    gsap.to(".enderman", {
+      y: -20,
+      repeat: -1,
+      yoyo: true,
+      duration: 2,
+    });
+
+  }, []);
+
   return (
-    <main className="container">
+    <>
+      {/* GAME BACKGROUND */}
+      <div className="bg-stars"></div>
 
       {/* HERO */}
-      <motion.section 
-        className="hero"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <motion.h1 
-          className="title"
-          animate={{ y: [0, -5, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          PRINCE WORLD
-        </motion.h1>
+      <section className="hero">
+        <h1 className="title">PRINCE WORLD</h1>
 
-        <p className="subtitle">
-          AI Developer • Full Stack Builder • Tech Explorer
-        </p>
+        <img src="/banner.png" className="hero-img" />
 
-        <motion.img
-          src="/banner.png"
-          className="hero-img"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 3 }}
-        />
+        <button className="main-btn">ENTER WORLD</button>
+      </section>
 
-        <motion.button 
-          className="main-btn"
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() =>
-            document
-              .getElementById("projects")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          VIEW PROJECTS
-        </motion.button>
-      </motion.section>
+      {/* MOBS */}
+      <img src="/ghast.jpeg" className="ghast" />
+      <img src="/enderman.jpeg" className="enderman" />
 
       {/* PROJECTS */}
-      <section id="projects" className="projects">
+      <section className="projects">
         <h2 className="section-title">PROJECTS</h2>
 
         <div className="project-grid">
-
-          {/* RAah */}
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.08 }}
-          >
+          <div className="card">
             <img src="/raah.png" />
             <h3>Raah</h3>
-            <p>Smart Udaipur Transport</p>
-            <button onClick={() =>
-              window.open("https://transport-flow--princerao1235u.replit.app")
-            }>
-              EXPLORE
-            </button>
-          </motion.div>
+            <p>Smart Transport</p>
+          </div>
 
-          {/* Govnnect */}
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.08 }}
-          >
-            <img src="/project2.png" />
-            <h3>Govnnect</h3>
-            <p>Civic issue platform</p>
-            <button>EXPLORE</button>
-          </motion.div>
-
-          {/* 2130 Group */}
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.08 }}
-          >
+          <div className="card">
             <img src="/2130group.png" />
             <h3>2130 Group</h3>
-            <p>Professional website</p>
-            <button onClick={() =>
-              window.open("https://two130-group-website.onrender.com/")
-            }>
-              EXPLORE
-            </button>
-          </motion.div>
+          </div>
 
+          <div className="card">
+            <img src="/file.svg" />
+            <h3>Govnnect</h3>
+          </div>
         </div>
       </section>
-
-    </main>
+    </>
   );
 }
